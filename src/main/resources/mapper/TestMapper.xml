@@ -18,11 +18,11 @@
     delete from test
     where id = #{id,jdbcType=INTEGER}
   </delete>
-    <insert id="insert" parameterType="com.heling.dao.Test">
+    <insert id="insert" parameterType="com.heling.model.Test">
     insert into test (id, name)
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR})
   </insert>
-    <insert id="insertSelective" parameterType="com.heling.dao.Test">
+    <insert id="insertSelective" parameterType="com.heling.model.Test">
         insert into test
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null">
@@ -41,7 +41,7 @@
             </if>
         </trim>
     </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="com.heling.dao.Test">
+    <update id="updateByPrimaryKeySelective" parameterType="com.heling.model.Test">
         update test
         <set>
             <if test="name != null">
@@ -50,7 +50,7 @@
         </set>
         where id = #{id,jdbcType=INTEGER}
     </update>
-    <update id="updateByPrimaryKey" parameterType="com.heling.dao.Test">
+    <update id="updateByPrimaryKey" parameterType="com.heling.model.Test">
     update test
     set name = #{name,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}

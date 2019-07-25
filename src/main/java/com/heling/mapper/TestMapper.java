@@ -2,7 +2,9 @@ package com.heling.mapper;
 
 
 import com.heling.model.Test;
+import org.springframework.stereotype.Repository;
 
+//@Repository
 public interface TestMapper {
 
     int deleteByPrimaryKey(Integer id);
