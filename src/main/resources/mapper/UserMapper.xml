@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.heling.mapper.TestMapper">
-    <resultMap id="BaseResultMap" type="com.heling.model.Test">
+<mapper namespace="com.heling.mapper.UserMapper">
+    <resultMap id="BaseResultMap" type="com.heling.model.User">
         <id column="id" property="id" jdbcType="INTEGER"/>
         <result column="name" property="name" jdbcType="VARCHAR"/>
     </resultMap>
@@ -11,19 +11,19 @@
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
         select
         <include refid="Base_Column_List"/>
-        from test
+        from user
         where id = #{id,jdbcType=INTEGER}
     </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from test
+    delete from user
     where id = #{id,jdbcType=INTEGER}
   </delete>
-    <insert id="insert" parameterType="com.heling.model.Test">
-    insert into test (id, name)
+    <insert id="insert" parameterType="com.heling.model.User">
+    insert into user (id, name)
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR})
   </insert>
-    <insert id="insertSelective" parameterType="com.heling.model.Test">
-        insert into test
+    <insert id="insertSelective" parameterType="com.heling.model.User">
+        insert into user
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null">
                 id,
@@ -41,8 +41,8 @@
             </if>
         </trim>
     </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="com.heling.model.Test">
-        update test
+    <update id="updateByPrimaryKeySelective" parameterType="com.heling.model.User">
+        update user
         <set>
             <if test="name != null">
                 name = #{name,jdbcType=VARCHAR},
@@ -50,8 +50,8 @@
         </set>
         where id = #{id,jdbcType=INTEGER}
     </update>
-    <update id="updateByPrimaryKey" parameterType="com.heling.model.Test">
-    update test
+    <update id="updateByPrimaryKey" parameterType="com.heling.model.User">
+    update user
     set name = #{name,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
