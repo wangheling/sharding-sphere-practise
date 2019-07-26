@@ -48,12 +48,13 @@ spring:
         username: root
         password: Tech@2018
     sharding:
-      default-database-strategy:
-        inline:
-          sharding-column: id
-          algorithm-expression: sharding$->{id % 2}
       tables:
         user:
+          database-strategy:
+            standard:
+              sharding-column: name
+              # 自定义user表分库规则
+              precise-algorithm-class-name: com.heling.rule.UserDatabaseShardingAlgorithm
           actual-data-nodes: sharding$->{0..1}.user_->${0..1}
           table-strategy:
             inline:

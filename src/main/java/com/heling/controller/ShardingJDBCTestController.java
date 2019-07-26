@@ -24,7 +24,7 @@ public class ShardingJDBCTestController {
 
     @PostMapping("shardingJDBC")
     public String testShardingJDBC() {
-        userMapper.insertSelective(new User(1,"zs"));
+        userMapper.insertSelective(new User(1,"heling"));
         userMapper.insertSelective(new User(2,"ls"));
         userMapper.insertSelective(new User(3,"ww"));
         return "success";
