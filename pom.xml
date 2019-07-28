@@ -115,6 +115,12 @@
                 <env>co</env>
             </properties>
         </profile>
+        <profile>
+            <id>linux</id>
+            <properties>
+                <env>linux</env>
+            </properties>
+        </profile>
     </profiles>
 
 </project>
