@@ -19,21 +19,21 @@ import javax.annotation.Resource;
 @RequestMapping("test")
 public class ShardingJDBCTestController {
 
-    @Resource
-    private UserMapper userMapper;
-
-    @PostMapping("shardingJDBC")
-    public String testShardingJDBC() {
-        userMapper.insertSelective(new User(1,"heling"));
-        userMapper.insertSelective(new User(2,"ls"));
-        userMapper.insertSelective(new User(3,"ww"));
-        return "success";
-    }
-
-    @GetMapping("shardingJDBC")
-    public String testShardingJDBC02() {
-        User user = userMapper.selectByPrimaryKey(3);
-        return JSONObject.toJSONString(user);
-    }
+//    @Resource
+//    private UserMapper userMapper;
+//
+//    @PostMapping("shardingJDBC")
+//    public String testShardingJDBC() {
+//        userMapper.insertSelective(new User(1,"heling"));
+//        userMapper.insertSelective(new User(2,"ls"));
+//        userMapper.insertSelective(new User(3,"ww"));
+//        return "success";
+//    }
+//
+//    @GetMapping("shardingJDBC")
+//    public String testShardingJDBC02() {
+//        User user = userMapper.selectByPrimaryKey(3);
+//        return JSONObject.toJSONString(user);
+//    }
 
 }
