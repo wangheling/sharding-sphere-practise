@@ -67,17 +67,33 @@
   </update>
 
 
-    <select id="selectByCreateTime" resultMap="BaseResultMap" >
+    <select id="selectByCreateTime" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
         from user
         where create_time = #{createTime}
     </select>
 
-    <select id="selectByCreateTimeRange" resultMap="BaseResultMap" >
+    <!--<select id="selectByCreateTimeRange" resultMap="BaseResultMap" >-->
+    <!--select-->
+    <!--<include refid="Base_Column_List"/>-->
+    <!--from user-->
+    <!--where create_time <![CDATA[ >=  ]]> #{start} and create_time <![CDATA[  <=  ]]> #{end}-->
+    <!--</select>-->
+
+
+    <select id="selectByCreateTimeRange" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
         from user
-        where create_time <![CDATA[ >=  ]]> #{start} and create_time <![CDATA[  <=  ]]> #{end}
+        where create_time between #{start} and #{end}
+    </select>
+
+
+    <select id="selectByCreateTimeGt" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from user
+        where create_time  <![CDATA[ >=  ]]> #{start}
     </select>
 </mapper>

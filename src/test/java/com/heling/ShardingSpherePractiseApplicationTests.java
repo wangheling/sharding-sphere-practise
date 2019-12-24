@@ -41,7 +41,7 @@ public class ShardingSpherePractiseApplicationTests {
     @Test
     @Rollback(false)
     public void testSelect() {
-        List<User> users = userMapper.selectByCreateTime(1574577634000l);
+        List<User> users = userMapper.selectByCreateTime(1569226812000l);
 
         System.out.println(users.size());
 
@@ -50,7 +50,16 @@ public class ShardingSpherePractiseApplicationTests {
     @Test
     @Rollback(false)
     public void testSelectRange() {
-        List<User> users = userMapper.selectByCreateTimeRange(1577169753819l,System.currentTimeMillis());
+        List<User> users = userMapper.selectByCreateTimeRange(1569226812000l,1571818812000l);
+
+        System.out.println(users.size());
+
+    }
+
+    @Test
+    @Rollback(false)
+    public void testSelectGt() {
+        List<User> users = userMapper.selectByCreateTimeGt(1577171334434l);
 
         System.out.println(users.size());
 

@@ -22,4 +22,6 @@ public interface UserMapper {
     List<User> selectByCreateTime(Long createTime);
 
     List<User> selectByCreateTimeRange(@Param("start") Long start,@Param("end") Long end);
+
+    List<User> selectByCreateTimeGt(@Param("start") Long start);
 }

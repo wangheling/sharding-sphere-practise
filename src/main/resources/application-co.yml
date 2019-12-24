@@ -1,6 +1,3 @@
-logging:
-  config: classpath:logback.xml
-
 mybatis:
   mapper-locations: classpath:/mapper/*.xml
 #  configuration:
@@ -28,8 +25,12 @@ spring:
       default-data-source-name: sharding0
       tables:
         user:
-          actual-data-nodes: sharding0.user_${[201911,201912]}
+          actual-data-nodes: sharding0.user_${[201910,201911,201912]}
           table-strategy:
             standard:
               sharding-column: create_time
+              # 范围算法 between and
+              rangeAlgorithmClassName: com.heling.rule.CreateTimeTableRangeShardingAlgorithm
+              # 精准算法 = 、 in
               preciseAlgorithmClassName: com.heling.rule.CreateTimeTableShardingAlgorithm
+
